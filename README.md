@@ -2,6 +2,8 @@
 
 A free, responsive admin dashboard layout built with plain HTML5 and CSS3 — no frameworks, no build step. Sidebar navigation, colorful stat cards, a sales chart panel, a traffic sources panel and a data table that all collapse cleanly on mobile.
 
+![Preview](preview.png)
+
 **[Live demo](https://lenivalestevao.github.io/responsive-dashboard-template/)**
 
 ## Features
