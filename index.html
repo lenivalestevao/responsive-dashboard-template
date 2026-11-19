@@ -1,103 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard Template</title>
+<meta name="description" content="Dash Admin: a free, responsive admin dashboard template in plain HTML, CSS and JavaScript.">
+<title>Dash Admin | Responsive Dashboard Template</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
-
-<aside class="sidebar" id="sidebar">
-<div class="sidebar-header">
-<span class="logo">📊 Dash</span>
-</div>
-<nav class="sidebar-nav">
-<a href="#" class="nav-link active">🏠 Overview</a>
-<a href="#" class="nav-link">📈 Analytics</a>
-<a href="#" class="nav-link">👥 Customers</a>
-<a href="#" class="nav-link">📦 Orders</a>
-<a href="#" class="nav-link">⚙️ Settings</a>
-</nav>
+<aside class="aside" id="aside">
+  <div class="aside-brand">
+    <a href="#/dashboard" class="brand"><span class="brand-mark">D</span><span class="brand-text">Dash Admin</span></a>
+    <button class="icon-btn aside-collapse" data-action="toggle-aside" aria-label="Collapse sidebar"><span data-icon="chevron-left"></span></button>
+  </div>
+  <nav class="menu" id="menu" aria-label="Main"></nav>
+  <div class="aside-footer">
+    <a class="btn btn-primary btn-block" href="https://github.com/lenivalestevao/responsive-dashboard-template" target="_blank" rel="noopener"><span class="aside-footer-text">Get the template</span><span data-icon="download"></span></a>
+  </div>
 </aside>
+<div class="overlay" data-action="close-drawer"></div>
 
-<div class="overlay" id="overlay"></div>
+<div class="wrapper">
+  <header class="header">
+    <button class="icon-btn burger" data-action="open-drawer" aria-label="Open menu"><span data-icon="menu"></span></button>
+    <label class="search">
+      <span data-icon="search"></span>
+      <input type="search" id="globalSearch" placeholder="Search orders..." autocomplete="off">
+    </label>
+    <div class="header-right">
+      <button class="icon-btn" data-action="toggle-theme" aria-label="Toggle dark mode" id="themeBtn"><span data-icon="moon"></span></button>
 
-<main class="main">
-<header class="topbar">
-<h1>Overview</h1>
-<div class="topbar-right">
-<input type="search" placeholder="Search..." class="search-input">
-<div class="avatar">LJ</div>
-</div>
-</header>
+      <div class="dd" id="ddNotif">
+        <button class="icon-btn" data-action="dd" aria-label="Notifications"><span data-icon="bell"></span><i class="dot"></i></button>
+        <div class="dd-menu dd-wide">
+          <div class="dd-head">Notifications <span class="badge badge-primary">4 new</span></div>
+          <a class="dd-item" href="#/orders"><span class="dd-ico success"><span data-icon="cart"></span></span><span><b>New order #10480</b><small>Emma Smith paid $258 · 5 min ago</small></span></a>
+          <a class="dd-item" href="#/customers"><span class="dd-ico primary"><span data-icon="users"></span></span><span><b>12 new customers</b><small>Signed up this week · 2 h ago</small></span></a>
+          <a class="dd-item" href="#/products"><span class="dd-ico warning"><span data-icon="package"></span></span><span><b>Low stock alert</b><small>Pixel Pro Smartwatch has 12 left · 5 h ago</small></span></a>
+          <a class="dd-item" href="#/analytics"><span class="dd-ico info"><span data-icon="trending"></span></span><span><b>Traffic is up 18%</b><small>Best week this quarter · yesterday</small></span></a>
+        </div>
+      </div>
 
-<section class="stats-grid">
-<div class="stat-card">
-<div class="stat-icon">💰</div>
-<div class="stat-body">
-<span class="stat-label">Revenue</span>
-<span class="stat-value">$48,200</span>
-<span class="stat-change positive">+12.4%</span>
-</div>
-</div>
-<div class="stat-card success">
-<div class="stat-icon">👥</div>
-<div class="stat-body">
-<span class="stat-label">Active Users</span>
-<span class="stat-value">3,482</span>
-<span class="stat-change positive">+5.1%</span>
-</div>
-</div>
-<div class="stat-card warning">
-<div class="stat-icon">📦</div>
-<div class="stat-body">
-<span class="stat-label">Orders</span>
-<span class="stat-value">1,204</span>
-<span class="stat-change negative">-2.3%</span>
-</div>
-</div>
-<div class="stat-card danger">
-<div class="stat-icon">📉</div>
-<div class="stat-body">
-<span class="stat-label">Conversion Rate</span>
-<span class="stat-value">4.8%</span>
-<span class="stat-change positive">+0.6%</span>
-</div>
-</div>
-</section>
+      <div class="dd" id="ddUser">
+        <button class="avatar" data-action="dd" aria-label="Account menu">LJ</button>
+        <div class="dd-menu">
+          <div class="dd-user">
+            <span class="avatar avatar-lg">LJ</span>
+            <span><b>Leni Junior</b><small>leni@example.com</small></span>
+          </div>
+          <a class="dd-item" href="#/settings/profile"><span data-icon="user"></span> My profile</a>
+          <a class="dd-item" href="#/orders"><span data-icon="cart"></span> My orders <span class="badge badge-success">12</span></a>
+          <a class="dd-item" href="#/settings/security"><span data-icon="shield"></span> Security</a>
+          <a class="dd-item" href="#/settings"><span data-icon="settings"></span> Account settings</a>
+          <button class="dd-item" data-action="toggle-theme"><span data-icon="moon"></span> Dark mode</button>
+          <div class="dd-sep"></div>
+          <button class="dd-item" data-action="signout"><span data-icon="logout"></span> Sign out</button>
+        </div>
+      </div>
+    </div>
+  </header>
 
-<section class="panels-row">
-<div class="panel">
-<h2>Sales Overview</h2>
-<div class="chart-placeholder" id="chartPlaceholder"></div>
-</div>
-<div class="panel">
-<h2>Traffic Sources</h2>
-<ul class="legend-list" id="trafficList"></ul>
-</div>
-</section>
+  <div class="toolbar">
+    <div>
+      <h1 id="pageTitle">Overview</h1>
+      <ul class="crumbs" id="crumbs"></ul>
+    </div>
+    <div class="toolbar-actions" id="toolbarActions"></div>
+  </div>
 
-<section class="panel">
-<h2>Recent Orders</h2>
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-<th>Order</th>
-<th>Customer</th>
-<th>Status</th>
-<th>Amount</th>
-</tr>
-</thead>
-<tbody id="ordersBody"></tbody>
-</table>
-</div>
-</section>
+  <main class="content" id="view"></main>
 
-</main>
+  <footer class="footer">
+    <span>&copy; 2026 Dash Admin. Free and MIT licensed.</span>
+    <span>Made by <a href="https://github.com/lenivalestevao" target="_blank" rel="noopener">Leni Junior</a></span>
+  </footer>
+</div>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-head"><h3 id="modalTitle"></h3><button class="icon-btn" data-action="modal-close" aria-label="Close"><span data-icon="x"></span></button></div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-foot" id="modalFoot"></div>
+  </div>
+</div>
+<div class="toasts" id="toasts" aria-live="polite"></div>
 
 <script src="script.js"></script>
 </body>
